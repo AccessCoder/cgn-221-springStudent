@@ -1,18 +1,15 @@
-package com.example.cgn221springstudent.Repository;
+package com.example.cgn221springstudent.repository;
 
 import com.example.cgn221springstudent.model.Student;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
+@Service
 public class StudentRepo {
 
-    Map<String, Student> students = new HashMap();
-
-    public StudentRepo() {
-    }
+    private final Map<String, Student> students = new HashMap<>();
 
     public Student addStudent(Student student) {
         students.put(student.getId(), student);
@@ -23,8 +20,8 @@ public class StudentRepo {
         return students.get(id);
     }
 
-    public List<Collection<Student>> getAllStudents() {
-        return List.of(students.values());
+    public List<Student> getAllStudents() {
+        return new ArrayList<>(students.values());
     }
 
     public Student removeStudent(String id) {

@@ -12,7 +12,11 @@ import java.util.List;
 @RequestMapping("student")
 public class StudentController {
 
-    StudentService service = new StudentService();
+    private final StudentService service;
+
+    public StudentController(StudentService service) {
+        this.service = service;
+    }
 
     @GetMapping
     public List<Student> getAllStudents() {
@@ -30,7 +34,7 @@ public class StudentController {
     }
 
     @GetMapping("allStudents")
-    public List<Collection<Student>> listAllStudents() {
+    public List<Student> listAllStudents() {
         return service.getAllStudents();
     }
 
