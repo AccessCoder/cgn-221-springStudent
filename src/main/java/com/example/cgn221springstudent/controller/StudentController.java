@@ -3,6 +3,7 @@ package com.example.cgn221springstudent.controller;
 
 import com.example.cgn221springstudent.model.Student;
 import com.example.cgn221springstudent.service.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -14,6 +15,7 @@ public class StudentController {
 
     private final StudentService service;
 
+    @Autowired
     public StudentController(StudentService service) {
         this.service = service;
     }
