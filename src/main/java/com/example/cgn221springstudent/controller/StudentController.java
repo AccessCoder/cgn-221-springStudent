@@ -3,6 +3,7 @@ package com.example.cgn221springstudent.controller;
 
 import com.example.cgn221springstudent.model.Student;
 import com.example.cgn221springstudent.service.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -12,7 +13,12 @@ import java.util.List;
 @RequestMapping("student")
 public class StudentController {
 
-    StudentService service = new StudentService();
+    private final StudentService service;
+
+    @Autowired
+    public StudentController(StudentService service) {
+        this.service = service;
+    }
 
     @GetMapping
     public List<Student> getAllStudents() {
