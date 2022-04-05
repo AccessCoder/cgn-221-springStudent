@@ -29,7 +29,7 @@ public class StudentController {
         return service.addStudent(student);
     }
 
-    @GetMapping("allStudents")
+    @GetMapping("allstudents")
     public List<Collection<Student>> listAllStudents() {
         return service.getAllStudents();
     }
